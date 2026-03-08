@@ -1,14 +1,16 @@
 import express from "express";
-  import Logger from "../middleware/Logger.js";
-import coureRoutes from "./routes/course.js";
+import Logger from "./middleware/logger.js";
+import courseRoutes from "./routes/course.js";
 
- const app = express();
+const app = express();
+
 app.use(express.json());
+
+// middleware
 app.use(Logger);
 
-
-app.use("/",coureRoutes );
-
+// routes
+app.use("/", courseRoutes);
 
 app.listen(4000, () => {
   console.log("Server is running on port 4000");
